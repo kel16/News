@@ -11,6 +11,7 @@ namespace NewsPortal.Controllers
         /// Method displays Home view
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
