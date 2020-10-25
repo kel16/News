@@ -9,7 +9,7 @@ namespace NewsPortal.Data
     /// <summary>
     /// Application database context.
     /// </summary>
-    public class DataContext : DbContext //: IdentityDbContext
+    public class DataContext : DbContext 
     {
         /// <summary>
         /// Represents database table for news.
@@ -35,7 +35,7 @@ namespace NewsPortal.Data
             base.OnModelCreating(builder);
 
             builder.Entity<News>()
-               .HasIndex(n => n.NewsId).IsUnique();
+               .HasIndex(n => n.NewsGuid).IsUnique();
         }
     }
 }

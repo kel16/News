@@ -10,5 +10,6 @@ namespace NewsPortal.Interfaces
     public interface INewsManager
     {
         IEnumerable<News> GetFilteredNews(NewsFilterVM filter, int page, int quantity);
+        News GetNewsByGuid(Guid guid);
     }
 }

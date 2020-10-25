@@ -10,5 +10,6 @@ namespace NewsPortal.Interfaces
     public interface INewsRepository
     {
         IQueryable<News> GetNewsByFilter(NewsFilterVM filter);
+        News GetNews(Guid guid);
     }
 }

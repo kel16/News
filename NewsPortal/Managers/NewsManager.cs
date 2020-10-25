@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewsPortal.Managers
 {
-    public class NewsManager:INewsManager
+    public class NewsManager : INewsManager
     {
         private readonly INewsRepository _newsRepository;
 
@@ -29,6 +29,11 @@ namespace NewsPortal.Managers
             return news.Skip((page - 1) * quantity)
                 .Take(quantity)
                 .ToList();
+        }
+
+        public News GetNewsByGuid(Guid guid)
+        {
+            return _newsRepository.GetNews(guid);
         }
     }
 }

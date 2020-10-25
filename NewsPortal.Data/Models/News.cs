@@ -9,7 +9,7 @@ namespace NewsPortal.Data.Models
     public class News
     {
         [Key]
-        public Guid NewsId { get; set; }
+        public Guid NewsGuid { get; set; }
         public string Title { get; set; }
         public string Annotation { get; set; }
         public string Text { get; set; }
