@@ -14,7 +14,7 @@ namespace NewsPortal.Data
         /// <summary>
         /// Represents database table for news.
         /// </summary>
-        public DbSet<NewsModel> News { get; set; }
+        public DbSet<News> News { get; set; }
 
         /// <summary>
         /// The default DbContext constructor.
@@ -34,7 +34,7 @@ namespace NewsPortal.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<NewsModel>()
+            builder.Entity<News>()
                .HasIndex(n => n.NewsId).IsUnique();
         }
     }

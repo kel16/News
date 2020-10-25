@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewsPortal.Data.Models
 {
-    public class NewsModel
+    public class News
     {
         [Key]
         public Guid NewsId { get; set; }
