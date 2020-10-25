@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NewsPortal.Data;
+using NewsPortal.Interfaces;
+using NewsPortal.Managers;
+using NewsPortal.Repositories;
 
 namespace NewsPortal
 {
@@ -28,6 +31,9 @@ namespace NewsPortal
             services.AddDbContext<DataContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<INewsRepository, NewsRepository>();
+            services.AddScoped<INewsManager, NewsManager>();
 
             services.AddSwaggerGen(swagger =>
             {
