@@ -11,5 +11,6 @@ namespace NewsPortal.Interfaces
     {
         IEnumerable<News> GetFilteredNews(NewsFilterVM filter, int page, int quantity);
         News GetNewsByGuid(Guid guid);
+        Task AddNews(NewsVM news);
     }
 }

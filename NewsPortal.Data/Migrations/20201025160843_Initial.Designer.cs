@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NewsPortal.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201025124610_News-v2")]
-    partial class Newsv2
+    [Migration("20201025160843_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,9 @@ namespace NewsPortal.Data.Migrations
                     b.Property<string>("Annotation")
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("ChangeDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp without time zone");
 
@@ -40,9 +43,6 @@ namespace NewsPortal.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("NewsGuid");
-
-                    b.HasIndex("NewsGuid")
-                        .IsUnique();
 
                     b.ToTable("News");
                 });

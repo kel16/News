@@ -35,7 +35,10 @@ namespace NewsPortal.Data
             base.OnModelCreating(builder);
 
             builder.Entity<News>()
-               .HasIndex(n => n.NewsGuid).IsUnique();
+               .HasKey(n => n.NewsGuid);
+            builder.Entity<News>()
+                .Property(n => n.NewsGuid)
+                .ValueGeneratedOnAdd();
         }
     }
 }

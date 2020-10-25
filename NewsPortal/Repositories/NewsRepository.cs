@@ -35,9 +35,34 @@ namespace NewsPortal.Repositories
             return query;
         }
 
+        /// <summary>
+        /// Returns news with the given guid.
+        /// </summary>
+        /// <param name="guid">News search parameter.</param>
+        /// <returns>News with guid.</returns>
         public News GetNews(Guid guid)
         {
             return _context.News.Where(d => d.NewsGuid == guid).SingleOrDefault();
+        }
+
+        /// <summary>
+        /// Adds news to database.
+        /// </summary>
+        /// <param name="news">News model.</param>
+        /// <returns></returns>
+        public async Task AddNews(News news)
+        {
+            await _context.News.AddAsync(news);
+        }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
+        public Task SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

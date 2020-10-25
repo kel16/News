@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewsPortal.Data.Migrations
 {
-    public partial class Newsv2 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,18 +15,13 @@ namespace NewsPortal.Data.Migrations
                     Title = table.Column<string>(nullable: true),
                     Annotation = table.Column<string>(nullable: true),
                     Text = table.Column<string>(nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false)
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ChangeDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_News", x => x.NewsGuid);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_News_NewsGuid",
-                table: "News",
-                column: "NewsGuid",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
