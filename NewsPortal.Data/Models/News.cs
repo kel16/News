@@ -14,5 +14,11 @@ namespace NewsPortal.Data.Models
         public string Annotation { get; set; }
         public string Text { get; set; }
         public DateTime CreateDate { get; set; }
+        public DateTime ChangeDate { get; set; }
+        public News()
+        {
+            CreateDate = DateTime.UtcNow;
+            ChangeDate = DateTime.UtcNow;
+        }
     }
 }

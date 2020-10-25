@@ -28,6 +28,9 @@ namespace NewsPortal.Data.Migrations
                     b.Property<string>("Annotation")
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("ChangeDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp without time zone");
 
@@ -38,9 +41,6 @@ namespace NewsPortal.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("NewsGuid");
-
-                    b.HasIndex("NewsGuid")
-                        .IsUnique();
 
                     b.ToTable("News");
                 });

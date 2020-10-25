@@ -11,5 +11,8 @@ namespace NewsPortal.Interfaces
     {
         IQueryable<News> GetNewsByFilter(NewsFilterVM filter);
         News GetNews(Guid guid);
+        Task AddNews(News news);
+        void SaveChanges();
+        Task SaveChangesAsync();
     }
 }

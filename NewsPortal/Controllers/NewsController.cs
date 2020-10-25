@@ -54,5 +54,20 @@ namespace NewsPortal.Controllers
                 return new JsonResult(new { success = false, msg = ex.Message });
             }
         }
+
+        [HttpPost]
+        public JsonResult CreateNews(NewsVM news)
+        {
+            try
+            {
+                _newsManager.AddNews(news);
+
+                return new JsonResult(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, msg = ex.Message });
+            }
+        }
     }
 }

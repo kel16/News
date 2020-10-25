@@ -31,9 +31,30 @@ namespace NewsPortal.Managers
                 .ToList();
         }
 
+        /// <summary>
+        /// Returns news with the given guid.
+        /// </summary>
+        /// <param name="guid">News search parameter.</param>
+        /// <returns>News with guid.</returns>
         public News GetNewsByGuid(Guid guid)
         {
             return _newsRepository.GetNews(guid);
+        }
+
+        /// <summary>
+        /// Adds news to database.
+        /// </summary>
+        /// <param name="news">News view model.</param>
+        /// <returns></returns>
+        public async Task AddNews(NewsVM news)
+        {
+            await _newsRepository.AddNews(new News 
+            { 
+                Title = news.Title,
+                Annotation = news.Annotation,
+                Text = news.Text,
+            });
+            await _newsRepository.SaveChangesAsync();
         }
     }
 }
