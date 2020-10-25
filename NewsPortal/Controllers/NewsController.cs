@@ -37,5 +37,22 @@ namespace NewsPortal.Controllers
                 return new JsonResult(new { success = false, msg = ex.Message });
             }
         }
+
+        [HttpGet]
+        public JsonResult GetNewsByGuid(Guid guid)
+        {
+            try
+            {
+                var news = _newsManager.GetNewsByGuid(guid);
+                if (news == null)
+                    throw new Exception("No news with the given guid");
+
+                return new JsonResult(new { success = true, data = news });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, msg = ex.Message });
+            }
+        }
     }
 }

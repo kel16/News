@@ -19,9 +19,9 @@ namespace NewsPortal.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("NewsPortal.Data.Models.NewsModel", b =>
+            modelBuilder.Entity("NewsPortal.Data.Models.News", b =>
                 {
-                    b.Property<Guid>("NewsId")
+                    b.Property<Guid>("NewsGuid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
@@ -37,9 +37,9 @@ namespace NewsPortal.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
-                    b.HasKey("NewsId");
+                    b.HasKey("NewsGuid");
 
-                    b.HasIndex("NewsId")
+                    b.HasIndex("NewsGuid")
                         .IsUnique();
 
                     b.ToTable("News");

@@ -30,9 +30,14 @@ namespace NewsPortal.Repositories
                             .Contains(filter.Annotation.ToLower()))
                         && (filter.Text == null || news.Text.Contains(filter.Text))
                         && (!filter.CreateDate.HasValue || news.CreateDate == filter.CreateDate)
-                        orderby news.NewsId
+                        orderby news.NewsGuid
                         select news;
             return query;
+        }
+
+        public News GetNews(Guid guid)
+        {
+            return _context.News.Where(d => d.NewsGuid == guid).SingleOrDefault();
         }
     }
 }
