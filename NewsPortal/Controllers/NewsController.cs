@@ -65,5 +65,20 @@ namespace NewsPortal.Controllers
                 return new JsonResult(new { success = false, msg = ex.Message });
             }
         }
+
+        [HttpPost]
+        public JsonResult ChangeNews(Guid guid, NewsVM news)
+        {
+            try
+            {
+                _newsManager.ChangeNews(guid, news);
+
+                return new JsonResult(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, msg = ex.Message });
+            }
+        }
     }
 }

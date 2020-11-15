@@ -54,6 +54,19 @@ namespace NewsPortal.Repositories
             await _context.News.AddAsync(news);
         }
 
+        /// <summary>
+        /// Updates news information
+        /// </summary>
+        /// <param name="oldNews">Current entity</param>
+        /// <param name="news">Updated view model</param>
+        /// <returns></returns>
+        public void UpdateNews(News oldNews, NewsVM news)
+        {
+            oldNews.Title = news.Title;
+            oldNews.Annotation = news.Annotation;
+            oldNews.Text = news.Text;
+            oldNews.ChangeDate = DateTime.UtcNow;
+        }
         public void SaveChanges()
         {
             _context.SaveChanges();
