@@ -2,7 +2,6 @@
 using NewsPortal.Models.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace NewsPortal.Interfaces
@@ -12,5 +11,6 @@ namespace NewsPortal.Interfaces
         IEnumerable<News> GetFilteredNews(NewsFilterVM filter, int page, int quantity);
         News GetNewsByGuid(Guid guid);
         Task AddNews(NewsVM news);
+        void ChangeNews(Guid guid, NewsVM news);
     }
 }

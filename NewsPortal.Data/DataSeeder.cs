@@ -1,5 +1,4 @@
 ﻿using NewsPortal.Data.Models;
-using System;
 using System.Collections.Generic;
 
 namespace NewsPortal.Data

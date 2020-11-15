@@ -56,5 +56,21 @@ namespace NewsPortal.Managers
             });
             await _newsRepository.SaveChangesAsync();
         }
+
+        /// <summary>
+        /// Updates news in database.
+        /// </summary>
+        /// <param name="guid">Guid of news to update.</param>
+        /// <param name="news">Updated view model.</param>
+        public void ChangeNews(Guid guid, NewsVM news)
+        {
+            var oldNews = _newsRepository.GetNews(guid);
+            if (oldNews == null)
+            {
+                throw new Exception("No news to update");
+            }
+            _newsRepository.UpdateNews(oldNews, news);
+            _newsRepository.SaveChanges();
+        }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NewsPortal.Interfaces;
@@ -61,6 +57,21 @@ namespace NewsPortal.Controllers
             try
             {
                 _newsManager.AddNews(news);
+
+                return new JsonResult(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, msg = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ChangeNews(Guid guid, NewsVM news)
+        {
+            try
+            {
+                _newsManager.ChangeNews(guid, news);
 
                 return new JsonResult(new { success = true });
             }
