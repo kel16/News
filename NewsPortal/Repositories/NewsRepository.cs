@@ -67,6 +67,17 @@ namespace NewsPortal.Repositories
             oldNews.Text = news.Text;
             oldNews.ChangeDate = DateTime.UtcNow;
         }
+
+        /// <summary>
+        /// Removes news entity from database.
+        /// </summary>
+        /// <param name="news">News model.</param>
+        /// <returns></returns>
+        public void DeleteNews(News news)
+        {
+            _context.News.Remove(news);
+        }
+
         public void SaveChanges()
         {
             _context.SaveChanges();

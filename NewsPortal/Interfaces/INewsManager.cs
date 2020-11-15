@@ -12,5 +12,6 @@ namespace NewsPortal.Interfaces
         News GetNewsByGuid(Guid guid);
         Task AddNews(NewsVM news);
         void ChangeNews(Guid guid, NewsVM news);
+        void DeleteNews(Guid guid);
     }
 }
