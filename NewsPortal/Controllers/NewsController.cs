@@ -80,5 +80,20 @@ namespace NewsPortal.Controllers
                 return new JsonResult(new { success = false, msg = ex.Message });
             }
         }
+
+        [HttpDelete]
+        public JsonResult DeleteNews(Guid guid)
+        {
+            try
+            {
+                _newsManager.DeleteNews(guid);
+
+                return new JsonResult(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, msg = ex.Message });
+            }
+        }
     }
 }

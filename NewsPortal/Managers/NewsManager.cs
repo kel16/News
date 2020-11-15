@@ -72,5 +72,21 @@ namespace NewsPortal.Managers
             _newsRepository.UpdateNews(oldNews, news);
             _newsRepository.SaveChanges();
         }
+
+        /// <summary>
+        /// Deletes news with the given guid.
+        /// </summary>
+        /// <param name="guid">News guid.</param>
+        /// <returns></returns>
+        public void DeleteNews(Guid guid)
+        {
+            var news = _newsRepository.GetNews(guid);
+            if (news == null)
+            {
+                throw new Exception("News not found");
+            }
+            _newsRepository.DeleteNews(news);
+            _newsRepository.SaveChanges();
+        }
     }
 }
