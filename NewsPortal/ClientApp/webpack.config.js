@@ -37,6 +37,7 @@ const config = {
       store: path.resolve(__dirname, "src/store"),
       hooks: path.resolve(__dirname, "src/hooks"),
       api: path.resolve(__dirname, "src/api"),
+      types: path.resolve(__dirname, "src/types"),
       utils: path.resolve(__dirname, "src/utils"),
       "~": path.resolve(__dirname, "src"),
     },
