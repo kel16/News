@@ -1,10 +1,11 @@
-import * as React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import { theme } from "~/theme";
-import { Header } from "components/Layouts/Header";
-import MainPage from "components/MainPage";
-import { NewsPage } from "components/NewsPage";
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { Header } from 'components/Layouts/Header';
+import MainPage from 'components/MainPage';
+import { NewsPage } from 'components/NewsPage';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import { theme } from '~/theme';
 
 const App: React.FC = () => (
   <React.Suspense fallback={null}>
@@ -15,7 +16,7 @@ const App: React.FC = () => (
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route path="/news/:id" component={NewsPage} />
-          <Route path="*" component={() => <>Page doesn't exist</>} />
+          <Route path="*" component={() => <>Page doesn&apos;t exist</>} />
         </Switch>
       </Router>
     </ThemeProvider>

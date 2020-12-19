@@ -1,12 +1,12 @@
-import * as React from "react";
-import { useEffect, useState, FC } from "react";
-import { Grid, Divider, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { Divider, Grid, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { getNews } from 'api/news';
+import React, { FC, useEffect, useState } from 'react';
+import { INews } from 'types/INews';
 
-import { getNews } from "api/news";
-import { INews } from "types/INews";
-import strings from "~/strings";
-import { styles } from "./styles";
-import { NewsCard } from "./NewsCard";
+import strings from '~/strings';
+
+import { NewsCard } from './NewsCard';
+import { styles } from './styles';
 
 interface IProps extends WithStyles<typeof styles> {}
 

@@ -1,18 +1,20 @@
-import * as React from "react";
-import { Link as RouterLink } from "react-router-dom";
 import {
-  Grid,
-  CardActionArea,
-  WithStyles,
-  Link,
   Card,
-  Typography,
+  CardActionArea,
   CardContent,
+  Grid,
+  Link,
+  Typography,
+  WithStyles,
   withStyles,
-} from "@material-ui/core";
-import { INews } from "types/INews";
-import strings from "~/strings";
-import { styles } from "./styles";
+} from '@material-ui/core';
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { INews } from 'types/INews';
+
+import strings from '~/strings';
+
+import { styles } from './styles';
 
 interface IProps extends WithStyles<typeof styles> {
   news: INews;

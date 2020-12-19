@@ -1,11 +1,11 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Container, Paper, Typography, WithStyles, withStyles } from "@material-ui/core";
-import { getNewsByGuid } from "api/news";
-import { INews } from "types/INews";
-import { formatDate } from "utils/date";
-import { styles } from "./styles";
+import { Container, Paper, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { getNewsByGuid } from 'api/news';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { INews } from 'types/INews';
+import { formatDate } from 'utils/date';
+
+import { styles } from './styles';
 
 interface IProps extends WithStyles<typeof styles> {}
 
@@ -15,9 +15,9 @@ const NewsPage = withStyles(styles)(({ classes }: IProps) => {
 
   useEffect(() => {
     async function fetchNewsByGuid() {
-      const news = await getNewsByGuid(id);
-      if (news.success) {
-        setNews(news.data);
+      const fetchedNews = await getNewsByGuid(id);
+      if (fetchedNews.success) {
+        setNews(fetchedNews.data);
       }
     }
 

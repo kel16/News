@@ -9,6 +9,7 @@
   "scripts": {
     "watch": "webpack --mode development --watch",
     "clean": "rm dist/bundle.js",
+    "lint": "eslint . --ext .ts",
     "build-dev": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production",
     "start": "webpack-dev-server --hot --mode development"
@@ -30,14 +31,13 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
     "babel-loader": "^8.1.0",
     "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-lodash": "^7.1.0",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-optimize-regex": "^1.2.0",
     "eslint-plugin-prettier": "^3.1.4",
