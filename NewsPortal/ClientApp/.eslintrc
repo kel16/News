@@ -7,8 +7,6 @@
   },
   "extends": [
     "airbnb",
-    "plugin:import/errors",
-    "plugin:import/warnings",
     "plugin:sonarjs/recommended",
     "plugin:promise/recommended",
     "plugin:lodash/recommended",
@@ -25,7 +23,8 @@
     "sonarjs",
     "no-loops",
     "promise",
-    "lodash"
+    "lodash",
+    "simple-import-sort"
   ],
   "rules": {
     "react/jsx-filename-extension": "off",
@@ -34,6 +33,9 @@
     "optimize-regex/optimize-regex": "warn",
     "sonarjs/cognitive-complexity": ["error", 30],
     "no-loops/no-loops": 2,
-    "import/first": "error"
+    "import/first": "error",
+    "no-console": 2,
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

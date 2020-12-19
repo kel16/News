@@ -1,1 +1,1 @@
-export { INewsResponse } from "./INewsResponse";
+export { INewsResponse, INewsByGuidResponse } from "./INewsResponse";

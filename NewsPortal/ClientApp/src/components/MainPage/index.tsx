@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, FC } from "react";
 import { Grid, Divider, Typography, WithStyles, withStyles } from "@material-ui/core";
 
 import { getNews } from "api/news";
@@ -8,9 +8,9 @@ import strings from "~/strings";
 import { styles } from "./styles";
 import { NewsCard } from "./NewsCard";
 
-interface Props extends WithStyles<typeof styles> {}
+interface IProps extends WithStyles<typeof styles> {}
 
-const MainPage: React.FC<Props> = ({ classes }) => {
+const MainPage: FC<IProps> = ({ classes }) => {
   const [news, setNews] = useState<INews[]>([]);
 
   useEffect(() => {

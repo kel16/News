@@ -14,7 +14,7 @@ const App: React.FC = () => (
         <Header />
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route path="/news" component={NewsPage} />
+          <Route path="/news/:id" component={NewsPage} />
           <Route path="*" component={() => <>Page doesn't exist</>} />
         </Switch>
       </Router>

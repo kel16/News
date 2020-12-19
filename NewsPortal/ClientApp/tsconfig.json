@@ -12,6 +12,7 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
+      "common/*": ["src/components/common/*"],
       "components/*": ["src/components/*"],
       "store/*": ["src/store/*"],
       "hooks/*": ["src/hooks/*"],

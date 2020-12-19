@@ -33,6 +33,7 @@ const config = {
   resolve: {
     extensions: [".js", ".jsx", ".tsx", ".ts"],
     alias: {
+      common: path.resolve(__dirname, "src/components/common"),
       components: path.resolve(__dirname, "src/components"),
       store: path.resolve(__dirname, "src/store"),
       hooks: path.resolve(__dirname, "src/hooks"),
