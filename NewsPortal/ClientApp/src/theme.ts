@@ -12,8 +12,7 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
-          height: '100vh',
-          width: '100vw',
+          width: '100%',
           padding: 0,
           margin: 0,
         },

@@ -43,6 +43,7 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "object-curly-newline": "off",
     "implicit-arrow-linebreak": "off",
-    "no-confusing-arrow": "off"
+    "no-confusing-arrow": "off",
+    "linebreak-style": ["error", "windows"]
   }
 }
