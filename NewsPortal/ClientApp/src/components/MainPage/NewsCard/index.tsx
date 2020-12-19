@@ -16,7 +16,7 @@ import strings from '~/strings';
 
 import { styles } from './styles';
 
-interface IProps extends WithStyles<typeof styles> {
+export interface IProps extends WithStyles<typeof styles> {
   news: INews;
 }
 
