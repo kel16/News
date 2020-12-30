@@ -46,4 +46,4 @@ const NewsPage = withStyles(styles)(({ classes }: IProps) => {
   );
 });
 
-export { NewsPage };
+export { IProps, NewsPage };

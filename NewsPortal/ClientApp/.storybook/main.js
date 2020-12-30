@@ -11,6 +11,7 @@ module.exports = {
       alias: {
         ...config.resolve.alias,
         ...webpackConfig.resolve.alias,
+        axios: require.resolve('../__mocks__/axios.ts'),
       },
     },
   }),
