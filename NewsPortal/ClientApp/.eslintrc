@@ -19,11 +19,11 @@
     "optimize-regex",
     "sonarjs",
     "no-loops",
-    "promise",
-    "simple-import-sort"
+    "promise"
   ],
   "rules": {
     "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-one-expression-per-line": "off",
     "no-use-before-define": "off",
@@ -38,8 +38,6 @@
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "object-curly-newline": "off",
     "implicit-arrow-linebreak": "off",

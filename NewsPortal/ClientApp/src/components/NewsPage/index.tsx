@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { INews } from 'types/INews';
 import { formatDate } from 'utils/date';
-
 import { styles } from './styles';
 
 interface IProps extends WithStyles<typeof styles> {}

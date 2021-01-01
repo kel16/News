@@ -6,4 +6,9 @@ export const styles = (theme: Theme) => ({
     justifyContent: 'center',
     marginTop: theme.spacing(3),
   },
+  pagination: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginTop: theme.spacing(3),
+  },
 });

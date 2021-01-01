@@ -8,6 +8,7 @@ namespace NewsPortal.Interfaces
 {
     public interface INewsManager
     {
+        int GetTotalCount(NewsFilterVM filter);
         IEnumerable<News> GetFilteredNews(NewsFilterVM filter, int page, int quantity);
         News GetNewsByGuid(Guid guid);
         Task AddNews(NewsVM news);

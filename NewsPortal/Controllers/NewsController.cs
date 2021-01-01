@@ -20,6 +20,21 @@ namespace NewsPortal.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetTotalCount(NewsFilterVM filter)
+        {
+            try
+            {
+                var newsCount = _newsManager.GetTotalCount(filter);
+
+                return new JsonResult(new { success = true, data = newsCount });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, msg = ex.Message });
+            }
+        }
+
+        [HttpPost]
         public JsonResult GetNews(NewsFilterVM filter, int page = 1, int quantity = 10)
         {
             try

@@ -18,6 +18,15 @@ namespace NewsPortal.Managers
         }
 
         /// <summary>
+        /// Returns total number of news.
+        /// </summary>
+        public int GetTotalCount(NewsFilterVM filter)
+        {
+            var news = _newsRepository.GetNewsByFilter(filter).ToList();
+            return news.Count();
+        }
+
+        /// <summary>
         /// Returns paged news.
         /// </summary>
         /// <param name="page">Current page number.</param>
