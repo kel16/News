@@ -1,4 +1,4 @@
-import { INews } from 'types/INews';
+import { INews } from "types/INews";
 
 /**
  * Interface for obtaining news with the given guid.

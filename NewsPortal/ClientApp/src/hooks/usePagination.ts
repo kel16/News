@@ -1,5 +1,5 @@
-import { getNewsCount } from 'api/news';
-import { useEffect, useMemo, useState } from 'react';
+import { getNewsCount } from "api/news";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 const defaultPage = 1;
 
@@ -24,12 +24,19 @@ export const usePagination = ({ countPerPage, currentPage = defaultPage }: IProp
     fetchNewsCount();
   }, []);
 
-  const pagesCount = useMemo(() => Math.ceil(totalCount / countPerPage), [
-    totalCount,
-    countPerPage,
-  ]);
+  const getPagesCount = () => Math.ceil(totalCount / countPerPage);
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, newPage: number) => {
+  const pagesCount = useMemo(() => getPagesCount(), [totalCount, countPerPage]);
+
+  useEffect(() => {
+    const maxCountOfPages = getPagesCount();
+
+    if (page > maxCountOfPages) {
+      setPage(maxCountOfPages || defaultPage);
+    }
+  }, [countPerPage]);
+
+  const handlePageChange = (_event: ChangeEvent<unknown>, newPage: number) => {
     setPage(newPage);
   };
 
