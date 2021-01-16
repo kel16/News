@@ -11,17 +11,17 @@
     "target": "es5",
     "allowJs": true,
     "jsx": "react",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "common/*": ["src/components/common/*"],
-      "components/*": ["src/components/*"],
-      "store/*": ["src/store/*"],
-      "hooks/*": ["src/hooks/*"],
-      "api/*": ["src/api/*"],
-      "types/*": ["src/types/*"],
-      "utils/*": ["src/utils/*"],
-      "~/*": ["src/*"]
+      "common/*": ["components/common/*"],
+      "components/*": ["components/*"],
+      "store/*": ["store/*"],
+      "hooks/*": ["hooks/*"],
+      "api/*": ["api/*"],
+      "types/*": ["types/*"],
+      "utils/*": ["utils/*"],
+      "~/*": ["*"]
     }
   },
-  "include": ["./src/**/*"]
+  "include": ["./**/*"]
 }
