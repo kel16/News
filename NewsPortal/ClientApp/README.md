@@ -1,6 +1,11 @@
 # news-portal
 
-Empty project.
+## Project description
+
+Client side of the project is done with React, Typescript, Axios and Material-UI and it implements two routes:
+
+- "/": home page that displays paged news
+- "/news/:id": page that displays information about news with the ID
 
 ## Building and running on localhost
 
@@ -10,28 +15,8 @@ First install dependencies:
 npm install
 ```
 
-To run in hot module reloading mode:
-
-```sh
-npm start
-```
-
-To create a production build:
-
-```sh
-npm run build-prod
-```
-
 To create a development build:
 
 ```sh
-npm run build-dev
+npm run watch
 ```
-
-## Running
-
-Open the file `dist/index.html` in your browser
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
