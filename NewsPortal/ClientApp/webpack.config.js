@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 
 const config = {
@@ -9,13 +8,6 @@ const config = {
   },
   mode: "development",
   devtool: "cheap-source-map",
-  // devServer: {
-  //   publicPath: "/",
-  //   contentBase: path.join(__dirname, "dist"),
-  //   port: 8080,
-  //   historyApiFallback: { index: "index.html" },
-  //   compress: true,
-  // },
   module: {
     rules: [
       {

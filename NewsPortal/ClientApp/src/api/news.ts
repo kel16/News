@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
-import { INewsByGuidResponse, INewsCountResponse, INewsRequest, INewsResponse } from './models';
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { INewsByGuidResponse, INewsCountResponse, INewsRequest, INewsResponse } from "./models";
 
 const instance = axios.create();
 
@@ -8,7 +8,7 @@ const instance = axios.create();
  */
 export async function getNewsCount(): Promise<INewsCountResponse> {
   return await instance
-    .post('/api/news/gettotalcount', {})
+    .post("/api/news/gettotalcount", {})
     .then((response: AxiosResponse<INewsCountResponse>) => response.data)
     .catch((error: AxiosError) => {
       console.error(`Error getting total number of news: ${error.message}`);
@@ -22,10 +22,10 @@ export async function getNewsCount(): Promise<INewsCountResponse> {
 export async function getNews(newsModel: INewsRequest): Promise<INewsResponse> {
   return await instance
     .post(
-      '/api/news/getnews',
+      "/api/news/getnews",
       {},
       {
-        params: { page: newsModel.page, quantity: newsModel.quantity },
+        params: newsModel,
       }
     )
     .then((response: AxiosResponse<INewsResponse>) => response.data)
@@ -40,10 +40,10 @@ export async function getNews(newsModel: INewsRequest): Promise<INewsResponse> {
  */
 export async function getNewsByGuid(guid: string): Promise<INewsByGuidResponse> {
   return await instance
-    .get('/api/news/getnewsbyguid', { params: { guid } })
+    .get("/api/news/getnewsbyguid", { params: { guid } })
     .then((response: AxiosResponse<INewsByGuidResponse>) => response.data)
     .catch((error: AxiosError) => {
-      console.error(`Error fetching a list of news: ${error.message}`);
+      console.error(`Error fetching news by guid: ${error.message}`);
       throw error;
     });
 }

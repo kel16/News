@@ -1,31 +1,48 @@
-import { Paper, Typography, WithStyles, withStyles } from '@material-ui/core';
-import { getNewsByGuid } from 'api/news';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { INews } from 'types/INews';
-import { formatDate } from 'utils/date';
-import { styles } from './styles';
+import { CircularProgress, Paper, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { INewsByGuidResponse } from "api/models";
+import { getNewsByGuid } from "api/news";
+import { useToggle } from "hooks";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { formatDate } from "utils/date";
+import strings from "~/strings";
+import { styles } from "./styles";
 
 interface IProps extends WithStyles<typeof styles> {}
 
 const NewsPage = withStyles(styles)(({ classes }: IProps) => {
   const { id } = useParams<{ id: string }>();
-  const [news, setNews] = useState<INews>();
+  const [newsResponse, setNewsResponse] = useState<INewsByGuidResponse>();
+  const [isLoading, toggleLoading] = useToggle();
 
   useEffect(() => {
     async function fetchNewsByGuid() {
+      toggleLoading();
       const fetchedNews = await getNewsByGuid(id);
-      if (fetchedNews.success) {
-        setNews(fetchedNews.data);
-      }
+      setNewsResponse(fetchedNews);
+      toggleLoading();
     }
 
     fetchNewsByGuid();
   }, [id]);
 
-  if (!news) return null;
+  if (isLoading)
+    return (
+      <Paper className={classes.paper}>
+        <CircularProgress />
+      </Paper>
+    );
 
-  const { title, annotation, text, createDate } = news;
+  if (!newsResponse?.success)
+    return (
+      <Paper className={classes.paper}>
+        <Typography align="center" variant="h5">
+          {strings.NewsNotFound}
+        </Typography>
+      </Paper>
+    );
+
+  const { title, annotation, text, createDate } = newsResponse?.data;
 
   return (
     <Paper className={classes.paper}>
