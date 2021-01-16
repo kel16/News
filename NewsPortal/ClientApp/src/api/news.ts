@@ -25,7 +25,7 @@ export async function getNews(newsModel: INewsRequest): Promise<INewsResponse> {
       '/api/news/getnews',
       {},
       {
-        params: { page: newsModel.page, quantity: newsModel.quantity },
+        params: newsModel,
       }
     )
     .then((response: AxiosResponse<INewsResponse>) => response.data)
@@ -43,7 +43,7 @@ export async function getNewsByGuid(guid: string): Promise<INewsByGuidResponse> 
     .get('/api/news/getnewsbyguid', { params: { guid } })
     .then((response: AxiosResponse<INewsByGuidResponse>) => response.data)
     .catch((error: AxiosError) => {
-      console.error(`Error fetching a list of news: ${error.message}`);
+      console.error(`Error fetching news by guid: ${error.message}`);
       throw error;
     });
 }
