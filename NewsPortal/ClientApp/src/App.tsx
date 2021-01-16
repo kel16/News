@@ -2,12 +2,12 @@ import { Container, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Header } from "components/Layouts/Header";
 import MainPage from "components/MainPage";
 import { NewsPage } from "components/NewsPage";
-import React, { Suspense } from "react";
+import React, { FC, Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { theme } from "~/theme";
 import { ErrorBoundary } from "./ErrorBoundary";
 
-const App: React.FC = () => (
+const App: FC = () => (
   <Suspense fallback={null}>
     <ThemeProvider theme={theme}>
       <CssBaseline />

@@ -1,6 +1,7 @@
 import { Box, Link, Typography } from "@material-ui/core";
 import React, { Component, ErrorInfo, ReactNode } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import strings from "./strings";
 
 interface IProps {
   children: ReactNode;
@@ -33,12 +34,12 @@ class ErrorBoundary extends Component<IProps, IState> {
       return (
         <Box m={3}>
           <Typography variant="h3" gutterBottom>
-            Uncaught client error
+            {strings.ClientErrorHeader}
           </Typography>
-          <Typography>Sorry for the inconvenience</Typography>
+          <Typography>{strings.ClientErrorDescription}</Typography>
           <Typography color="error">
             <Link to="/" component={RouterLink}>
-              Click here to return to Home page
+              {strings.ClientErrorLinkInfo}
             </Link>
           </Typography>
         </Box>

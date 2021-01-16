@@ -6,16 +6,16 @@ import {
   Link,
   Typography,
   WithStyles,
-  withStyles
-} from '@material-ui/core';
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { INews } from 'types/INews';
-import strings from '~/strings';
-import { styles } from './styles';
+  withStyles,
+} from "@material-ui/core";
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { INews } from "types/INews";
+import strings from "~/strings";
+import { styles } from "./styles";
 
 interface IProps extends WithStyles<typeof styles> {
-    news: INews;
+  news: INews;
 }
 
 const NewsCard = withStyles(styles)(({ news, classes }: IProps) => {
@@ -34,7 +34,9 @@ const NewsCard = withStyles(styles)(({ news, classes }: IProps) => {
                 <Typography variant="subtitle1" paragraph>
                   {annotation}
                 </Typography>
-                <Typography variant="subtitle1" color="error"> {strings.NewsCardButtonMore}
+                <Typography variant="subtitle1" color="error">
+                  {" "}
+                  {strings.NewsCardButtonMore}
                 </Typography>
               </CardContent>
             </div>
@@ -46,4 +48,3 @@ const NewsCard = withStyles(styles)(({ news, classes }: IProps) => {
 });
 
 export { NewsCard };
-

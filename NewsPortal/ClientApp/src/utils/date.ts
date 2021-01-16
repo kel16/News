@@ -1,5 +1,5 @@
-import moment from 'moment';
+import moment from "moment";
 
-moment.locale('en');
+moment.locale("en");
 
-export const formatDate = (date: Date): string => moment(date).format('YYYY-MM-DD');
+export const formatDate = (date: Date): string => moment(date).format("YYYY-MM-DD");

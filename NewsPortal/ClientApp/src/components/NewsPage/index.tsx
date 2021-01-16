@@ -5,6 +5,7 @@ import { useToggle } from "hooks";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatDate } from "utils/date";
+import strings from "~/strings";
 import { styles } from "./styles";
 
 interface IProps extends WithStyles<typeof styles> {}
@@ -36,7 +37,7 @@ const NewsPage = withStyles(styles)(({ classes }: IProps) => {
     return (
       <Paper className={classes.paper}>
         <Typography align="center" variant="h5">
-          Requested news not found.
+          {strings.NewsNotFound}
         </Typography>
       </Paper>
     );
