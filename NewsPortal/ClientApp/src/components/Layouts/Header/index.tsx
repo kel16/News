@@ -1,16 +1,7 @@
-import {
-  AppBar,
-  Button,
-  Link,
-  Toolbar,
-  Typography,
-  WithStyles,
-  withStyles,
-} from '@material-ui/core';
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-
-import { styles } from './styles';
+import { AppBar, Link, Toolbar, Typography, WithStyles, withStyles } from "@material-ui/core";
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { styles } from "./styles";
 
 interface IProps extends WithStyles<typeof styles> {}
 
@@ -22,7 +13,6 @@ export const Header = withStyles(styles)(({ classes }: IProps) => (
           News Portal
         </Link>
       </Typography>
-      <Button color="inherit">Log in</Button>
     </Toolbar>
   </AppBar>
 ));
