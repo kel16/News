@@ -32,7 +32,14 @@ const NewsPage = withStyles(styles)(({ classes }: IProps) => {
       </Paper>
     );
 
-  if (!newsResponse?.success) return null;
+  if (!newsResponse?.success)
+    return (
+      <Paper className={classes.paper}>
+        <Typography align="center" variant="h5">
+          Requested news not found.
+        </Typography>
+      </Paper>
+    );
 
   const { title, annotation, text, createDate } = newsResponse?.data;
 
