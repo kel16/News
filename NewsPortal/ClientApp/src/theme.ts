@@ -1,5 +1,5 @@
-import { createMuiTheme } from "@material-ui/core/styles";
 import { blueGrey } from "@material-ui/core/colors";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const baseTheme = createMuiTheme();
 
@@ -12,8 +12,7 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       "@global": {
         body: {
-          height: "100vh",
-          width: "100vw",
+          width: "100%",
           padding: 0,
           margin: 0,
         },

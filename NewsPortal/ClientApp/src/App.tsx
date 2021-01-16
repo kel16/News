@@ -1,27 +1,30 @@
-import * as React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import { theme } from "~/theme";
+import { Container, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Header } from "components/Layouts/Header";
-import { MainPage } from "components/MainPage";
+import MainPage from "components/MainPage";
 import { NewsPage } from "components/NewsPage";
+import React, { FC, Suspense } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { theme } from "~/theme";
+import { ErrorBoundary } from "./ErrorBoundary";
 
-const App: React.FC = () => {
-  return (
-    <React.Suspense fallback={null}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
+const App: FC = () => (
+  <Suspense fallback={null}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <ErrorBoundary>
           <Header />
-          <Switch>
-            <Route exact path="/" component={MainPage} />
-            <Route path="/news" component={NewsPage} />
-            <Route path="*" component={() => <>Page doesn't exist</>} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </React.Suspense>
-  );
-};
+          <Container>
+            <Switch>
+              <Route exact path="/" component={MainPage} />
+              <Route path="/news/:id" component={NewsPage} />
+              <Route path="*" component={() => <>Page doesn&apos;t exist</>} />
+            </Switch>
+          </Container>
+        </ErrorBoundary>
+      </Router>
+    </ThemeProvider>
+  </Suspense>
+);
 
 export default App;

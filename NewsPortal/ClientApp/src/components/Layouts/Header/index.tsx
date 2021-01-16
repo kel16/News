@@ -1,11 +1,18 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import { AppBar, Link, Toolbar, Typography, WithStyles, withStyles } from "@material-ui/core";
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { styles } from "./styles";
 
-export const Header = () => {
-  return (
-    <div>
-      <Link to="/">Main page</Link>
-      <Link to="/news">News page</Link>
-    </div>
-  );
-};
+interface IProps extends WithStyles<typeof styles> {}
+
+export const Header = withStyles(styles)(({ classes }: IProps) => (
+  <AppBar position="static">
+    <Toolbar>
+      <Typography variant="h6" className={classes.title}>
+        <Link to="/" component={RouterLink}>
+          News Portal
+        </Link>
+      </Typography>
+    </Toolbar>
+  </AppBar>
+));
