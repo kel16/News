@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 const defaultPage = 1;
 
-type IProps = {
+export type IProps = {
   countPerPage: number;
   currentPage?: number;
 };
