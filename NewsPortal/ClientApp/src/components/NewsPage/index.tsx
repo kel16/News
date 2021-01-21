@@ -26,14 +26,14 @@ const NewsPage = withStyles(styles)(({ classes }: IProps) => {
     fetchNewsByGuid();
   }, [id]);
 
-  if (isLoading)
+  if (!newsResponse || isLoading)
     return (
       <Paper className={classes.paper}>
         <CircularProgress />
       </Paper>
     );
 
-  if (!newsResponse?.success)
+  if (!newsResponse.success)
     return (
       <Paper className={classes.paper}>
         <Typography align="center" variant="h5">
@@ -42,7 +42,7 @@ const NewsPage = withStyles(styles)(({ classes }: IProps) => {
       </Paper>
     );
 
-  const { title, annotation, text, createDate } = newsResponse?.data;
+  const { title, annotation, text, createDate } = newsResponse.data;
 
   return (
     <Paper className={classes.paper}>
