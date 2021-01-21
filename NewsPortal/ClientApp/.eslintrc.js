@@ -11,8 +11,14 @@ module.exports = {
     jest: true,
     es6: true,
   },
-  plugins: ["react", "@typescript-eslint"],
-  extends: ["airbnb-typescript", "prettier", "prettier/@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "testing-library", "jest-dom"],
+  extends: [
+    "airbnb-typescript",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+  ],
   rules: {
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
