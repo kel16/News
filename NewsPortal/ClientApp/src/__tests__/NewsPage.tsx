@@ -8,18 +8,22 @@ import strings from "~/strings";
 
 jest.mock("api/news");
 
-describe("NewsPage", () => {
-  const newsGuid = "a7495b71-2e85-400e-44e1-e161bce4a1bd";
+const newsGuid = "a7495b71-2e85-400e-44e1-e161bce4a1bd";
 
-  // Hoist helper functions (but not vars) to reuse between test cases
-  const renderComponent = (guid: string) =>
-    render(
-      <MemoryRouter initialEntries={[`/news/${guid}`]}>
-        <Route path="/news/:id">
-          <NewsPage />
-        </Route>
-      </MemoryRouter>
-    );
+// Hoist helper functions (but not vars) to reuse between test cases
+const renderComponent = (guid: string) =>
+  render(
+    <MemoryRouter initialEntries={[`/news/${guid}`]}>
+      <Route path="/news/:id">
+        <NewsPage />
+      </Route>
+    </MemoryRouter>
+  );
+
+describe("NewsPage", () => {
+  afterEach(() => {
+    (mockGetNewsByGuid as jest.Mock).mockClear();
+  });
 
   it("should access api", async () => {
     (mockGetNewsByGuid as jest.Mock).mockResolvedValue({
@@ -32,8 +36,8 @@ describe("NewsPage", () => {
 
       await waitFor(() => {
         expect(mockGetNewsByGuid).toHaveBeenCalledTimes(1);
-        expect(mockGetNewsByGuid).toHaveBeenCalledWith(newsGuid);
       });
+      expect(mockGetNewsByGuid).toHaveBeenCalledWith(newsGuid);
     });
   });
 
@@ -74,16 +78,16 @@ describe("NewsPage", () => {
 
       await waitFor(() => {
         expect(screen.getByText(mockedResponse.data.title)).toBeInTheDocument();
-        expect(screen.getByText(mockedResponse.data.annotation)).toBeInTheDocument();
-        expect(screen.getByText(mockedResponse.data.text)).toBeInTheDocument();
-        expect(
-          screen.queryByText(formatDate(mockedResponse.data.changeDate))
-        ).not.toBeInTheDocument();
-        expect(screen.getByText(/published/i)).toHaveTextContent(
-          formatDate(mockedResponse.data.createDate)
-        );
-        expect(screen.queryByText(strings.NewsNotFound)).not.toBeInTheDocument();
       });
+      expect(screen.getByText(mockedResponse.data.annotation)).toBeInTheDocument();
+      expect(screen.getByText(mockedResponse.data.text)).toBeInTheDocument();
+      expect(
+        screen.queryByText(formatDate(mockedResponse.data.changeDate))
+      ).not.toBeInTheDocument();
+      expect(screen.getByText(/published/i)).toHaveTextContent(
+        formatDate(mockedResponse.data.createDate)
+      );
+      expect(screen.queryByText(strings.NewsNotFound)).not.toBeInTheDocument();
     });
   });
 });

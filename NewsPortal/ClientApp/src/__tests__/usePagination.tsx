@@ -5,6 +5,10 @@ import { usePagination } from "hooks/usePagination";
 jest.mock("api/news");
 
 describe("usePagination", () => {
+  afterEach(() => {
+    (mockGetNewsCount as jest.Mock).mockClear();
+  });
+
   it("should call api once and count pages", async () => {
     (mockGetNewsCount as jest.Mock).mockResolvedValueOnce({ success: true, data: 20 });
 
