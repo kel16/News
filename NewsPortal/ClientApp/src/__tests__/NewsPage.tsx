@@ -76,9 +76,7 @@ describe("NewsPage", () => {
     await act(async () => {
       renderComponent(newsGuid);
 
-      await waitFor(() => {
-        expect(screen.getByText(mockedResponse.data.title)).toBeInTheDocument();
-      });
+      expect(await screen.findByText(mockedResponse.data.title)).toBeInTheDocument();
       expect(screen.getByText(mockedResponse.data.annotation)).toBeInTheDocument();
       expect(screen.getByText(mockedResponse.data.text)).toBeInTheDocument();
       expect(
