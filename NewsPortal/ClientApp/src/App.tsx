@@ -1,6 +1,7 @@
 import { Container, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { Header } from "components/Layouts/Header";
 import MainPage from "components/MainPage";
+import NewsManagement from "components/NewsManagement";
 import { NewsPage } from "components/NewsPage";
 import React, { FC, Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -18,6 +19,7 @@ const App: FC = () => (
             <Switch>
               <Route exact path="/" component={MainPage} />
               <Route path="/news/:id" component={NewsPage} />
+              <Route path="/news-management" component={NewsManagement} />
               <Route path="*" component={() => <>Page doesn&apos;t exist</>} />
             </Switch>
           </Container>
