@@ -47,4 +47,4 @@ const NewsCard = withStyles(styles)(({ news, classes }: IProps) => {
   );
 });
 
-export { NewsCard };
+export default NewsCard;
