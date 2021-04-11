@@ -10,19 +10,18 @@ import {
 } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import { getNews } from "api/news";
-import { useToggle } from "hooks";
-import { usePagination } from "hooks/index";
+import { usePagination, useToggle } from "hooks";
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { INews } from "types/INews";
 import strings from "~/strings";
-import { NewsCard } from "./NewsCard";
+import NewsCard from "./NewsCard";
 import { styles } from "./styles";
 
 const countPerPageOptions = [5, 10, 50];
 
 interface IProps extends WithStyles<typeof styles> {}
 
-const MainPage: FC<IProps> = ({ classes }) => {
+const Homepage: FC<IProps> = ({ classes }) => {
   const [news, setNews] = useState<INews[]>([]);
   const [isLoading, toggleLoading] = useToggle();
   const [countPerPage, setCountPerPage] = useState(countPerPageOptions[0]);
@@ -85,4 +84,4 @@ const MainPage: FC<IProps> = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(MainPage);
+export default withStyles(styles)(Homepage);

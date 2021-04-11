@@ -3,10 +3,10 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 const defaultPage = 1;
 
-type IProps = {
+interface IProps {
   countPerPage: number;
   currentPage?: number;
-};
+}
 
 export const usePagination = ({ countPerPage, currentPage = defaultPage }: IProps) => {
   const [page, setPage] = useState(currentPage);
